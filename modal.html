@@ -1,0 +1,67 @@
+<ul>
+    <li class="test">test</li>
+    <li class="test">test</li>
+    <li class="test">test</li>
+    <li class="test">test</li>
+</ul>
+
+<script>
+    let tests = document.querySelectorAll('.test');
+    tests.forEach(function (test) {
+        let newElem = document.createElement('a');
+        newElem.setAttribute('href', 'google');
+        newElem.classList.add('inner');
+        newElem.innerText = "What!!!";
+        test.append(newElem);
+        // test.insertAdjacentHTML("beforeend", '<div class="inner">What!!!</div>');
+        // console.log(newElem);
+    });
+
+</script>
+
+<style>
+    ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .test {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: 1px solid black;
+        position: relative;
+        background: gray;
+    }
+
+    .inner {
+        display: none;
+    }
+
+    .test:hover {
+        background: red;
+        border-bottom: none;
+    }
+
+    .test:hover .inner {
+        display: block;
+        position: absolute;
+        bottom: -20px;
+        background: red;
+        left: -1px;
+        right: -1px;
+        text-align: center;
+        border: 1px solid black;
+        border-top: 1px solid red;
+
+    }
+
+    .inner::before {
+        content: "";
+        background-image: url("what-img.png");
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+    }
+</style>
